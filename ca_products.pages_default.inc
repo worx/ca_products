@@ -1,23 +1,118 @@
 <?php
+/**
+ * @file
+ * ca_products.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_handlers().
+ * Implements hook_default_page_manager_handlers().
  */
 function ca_products_default_page_manager_handlers() {
   $export = array();
-  $handler = new stdClass;
+
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'ca_products_category_node_view_panel_context';
+  $handler->name = 'ca_products_node_view_panel_context';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'CA Products: Category Nodes Template One',
+    'title' => 'CA Products: Node Template One',
     'no_blocks' => 0,
     'pipeline' => 'standard',
-    'css_id' => 'ca-products-template-one',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ca_product' => 'ca_product',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-1';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products-ca_products_node_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-1'] = $pane;
+    $display->panels['middle'][0] = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products-ca_products_node_video_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][1] = 'new-2';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-1';
+  $handler->conf['display'] = $display;
+  $export['ca_products_node_view_panel_context'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'ca_products_node_view_panel_context_2';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'CA Products: Category Template One',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
@@ -30,21 +125,14 @@ function ca_products_default_page_manager_handlers() {
               'ca_product_category' => 'ca_product_category',
             ),
           ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'ca_products_category_node_template',
-          'settings' => array(
-            'ca_products_category_node_template' => 'ca_products_category_node_template_one',
-          ),
+          'context' => 'argument_entity_id:node_1',
           'not' => FALSE,
         ),
       ),
       'logic' => 'and',
     ),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -57,55 +145,11 @@ function ca_products_default_page_manager_handlers() {
   $display->title = '';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'middle';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_ca_product_category_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'ca_products_pc_scale_200w_imagelink',
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => '<none>',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'node_body';
-    $pane->subtype = 'node_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => '<none>',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_2';
+    $pane->subtype = 'ca_products-ca_products_sub_cat_list_one';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -115,112 +159,18 @@ function ca_products_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
-    $pane = new stdClass;
+    $display->panels['middle'][0] = 'new-3';
+    $pane = new stdClass();
     $pane->pid = 'new-4';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_3';
+    $pane->subtype = 'ca_products-ca_products_product_list_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][3] = 'new-4';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-
-  $export['ca_products_category_node_view_panel_context'] = $handler;
-  $handler = new stdClass;
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'ca_products_product_node_view_panel_context';
-  $handler->task = 'node_view';
-  $handler->subtask = '';
-  $handler->handler = 'panel_context';
-  $handler->weight = 1;
-  $handler->conf = array(
-    'title' => 'CA Products: Product Nodes Template One',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'css_id' => 'ca-products-template-one',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'ca_products' => 'ca_products',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'ca_products_product_node_template',
-          'settings' => array(
-            'ca_products_product_node_template' => 'ca_products_product_node_template_one',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
-  );
-  $display = new panels_display;
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_8';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'node_body';
-    $pane->subtype = 'node_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => '<none>',
-    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -228,84 +178,53 @@ function ca_products_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
-    $pane->panel = 'middle';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_ca_products_related_app';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(),
-    );
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => 'Applications',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
+    $pane->locks = array();
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][1] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
+  $export['ca_products_node_view_panel_context_2'] = $handler;
 
-  $export['ca_products_product_node_view_panel_context'] = $handler;
   return $export;
 }
 
 /**
- * Implementation of hook_default_page_manager_pages().
+ * Implements hook_default_page_manager_pages().
  */
 function ca_products_default_page_manager_pages() {
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'ca_products_add_category';
+  $page->name = 'ca_products_add_new_category';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Add Category';
+  $page->admin_title = 'CA Products: Add New Category';
   $page->admin_description = '';
-  $page->path = 'products/ca_products_add_category';
+  $page->path = 'products/add_category';
   $page->access = array(
     'plugins' => array(
       0 => array(
-        'name' => 'worx_plugins_role_access',
+        'name' => 'role',
         'settings' => array(
-          'worx_role' => 'products admin',
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
         ),
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'php',
-        'settings' => array(
-          'description' => 'If user 1',
-          'php' => 'global $user;
-if ($user->uid == 1) {
-return TRUE;
-}
-else {
-return FALSE;
-}',
-        ),
+        'context' => 'logged-in-user',
         'not' => FALSE,
       ),
     ),
-    'logic' => 'or',
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'tab',
-    'title' => 'Create Category',
+    'title' => 'Add New Category',
     'name' => 'navigation',
-    'weight' => '1',
+    'weight' => '10',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -314,14 +233,16 @@ return FALSE;
     ),
   );
   $page->arguments = array();
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_add_category_menu_context';
+  $handler->name = 'page_ca_products_add_new_category_menu_context';
   $handler->task = 'page';
-  $handler->subtask = 'ca_products_add_category';
+  $handler->subtask = 'ca_products_add_new_category';
   $handler->handler = 'menu_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -332,47 +253,55 @@ return FALSE;
     'contexts' => array(),
     'relationships' => array(),
     'context_admin_options' => 'node_create_menu',
-    'submitted_context' => 'empty',
     'context_admin_options_items' => 'ca_product_category',
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'empty',
   );
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_add_category'] = $page;
+  $pages['ca_products_add_new_category'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'ca_products_add_products';
+  $page->name = 'ca_products_add_product';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Add Products';
+  $page->admin_title = 'CA Products: Add Product';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_products_add_products';
+  $page->path = 'node/%node/add_product';
   $page->access = array(
     'plugins' => array(
       0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
             'ca_product_category' => 'ca_product_category',
           ),
         ),
-        'context' => 'argument_nid_1',
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'worx_plugins_role_access',
-        'settings' => array(
-          'worx_role' => 'products admin',
-        ),
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'tab',
-    'title' => 'Create Product',
+    'title' => 'Add Product',
     'name' => 'navigation',
-    'weight' => '11',
+    'weight' => '9',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -384,18 +313,20 @@ return FALSE;
     'node' => array(
       'id' => 1,
       'identifier' => 'Node: ID',
-      'name' => 'nid',
+      'name' => 'entity_id:node',
       'settings' => array(),
     ),
   );
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_add_products_menu_context';
+  $handler->name = 'page_ca_products_add_product_menu_context';
   $handler->task = 'page';
-  $handler->subtask = 'ca_products_add_products';
+  $handler->subtask = 'ca_products_add_product';
   $handler->handler = 'menu_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -405,27 +336,26 @@ return FALSE;
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'context_admin_options' => 'noderef_create_node',
-    'submitted_context' => 'argument_nid_1',
-    'context_admin_options_items' => 'ca_products',
-    'context_admin_field' => 'field_ca_product_category_parent',
-    'context_admin_autoforward' => 1,
-    'context_admin_content_types' => array(
-      'ca_products' => 'field_ca_product_category_parent',
-    ),
+    'context_admin_options' => 'entityref_create_node:ca_product:field_ca_product_parent_category',
+    'context_admin_options_items' => 'ca_product',
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'argument_entity_id:node_1',
+    'context_admin_field' => 'field_ca_product_parent_category',
+    'context_admin_custom_redirect' => '',
   );
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_add_products'] = $page;
+  $pages['ca_products_add_product'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'ca_products_add_sub_category';
   $page->task = 'page';
   $page->admin_title = 'CA Products: Add Sub Category';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_products_add_sub_category';
+  $page->path = 'node/%node/add_sub_category';
   $page->access = array(
+    'logic' => 'and',
     'plugins' => array(
       0 => array(
         'name' => 'node_type',
@@ -434,24 +364,30 @@ return FALSE;
             'ca_product_category' => 'ca_product_category',
           ),
         ),
-        'context' => 'argument_nid_1',
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
       1 => array(
-        'name' => 'worx_plugins_role_access',
+        'name' => 'role',
         'settings' => array(
-          'worx_role' => 'products admin',
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
         ),
+        'context' => 'logged-in-user',
         'not' => FALSE,
       ),
     ),
-    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'tab',
-    'title' => 'Create Sub Category',
+    'title' => 'Add New Subcategory',
     'name' => 'navigation',
-    'weight' => '10',
+    'weight' => '19',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -463,13 +399,15 @@ return FALSE;
     'node' => array(
       'id' => 1,
       'identifier' => 'Node: ID',
-      'name' => 'nid',
+      'name' => 'entity_id:node',
       'settings' => array(),
     ),
   );
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_ca_products_add_sub_category_menu_context';
@@ -484,51 +422,40 @@ return FALSE;
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'context_admin_options' => 'noderef_create_node',
-    'submitted_context' => 'argument_nid_1',
+    'context_admin_options' => 'entityref_create_node:ca_product_category:field_ca_category_parent',
     'context_admin_options_items' => 'ca_product_category',
-    'context_admin_content_types' => array(
-      'ca_product_category' => 'field_ca_product_category_parent',
-    ),
-    'context_admin_field' => 'field_ca_product_category_parent',
-    'context_admin_autoforward' => 1,
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'argument_entity_id:node_1',
+    'context_admin_field' => 'field_ca_category_parent',
+    'context_admin_custom_redirect' => '',
   );
   $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_add_sub_category'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'ca_products_category_admin';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Product Category Admin';
+  $page->admin_title = 'CA Products: Category Admin';
   $page->admin_description = '';
-  $page->path = 'products/ca_products_category_admin/administer';
+  $page->path = 'products/admin/administration';
   $page->access = array(
     'plugins' => array(
       0 => array(
-        'name' => 'worx_plugins_role_access',
+        'name' => 'role',
         'settings' => array(
-          'worx_role' => 'products admin',
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
         ),
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'php',
-        'settings' => array(
-          'description' => 'If user 1',
-          'php' => 'global $user;
-if ($user->uid == 1) {
-return TRUE;
-}
-else {
-return FALSE;
-}',
-        ),
+        'context' => 'logged-in-user',
         'not' => FALSE,
       ),
     ),
-    'logic' => 'or',
+    'logic' => 'and',
   );
   $page->menu = array(
     'type' => 'default tab',
@@ -543,9 +470,11 @@ return FALSE;
     ),
   );
   $page->arguments = array();
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_ca_products_category_admin_panel_context';
@@ -554,15 +483,17 @@ return FALSE;
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'CA Products: Category Admin',
     'no_blocks' => 0,
     'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -572,14 +503,14 @@ return FALSE;
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Product Categories';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_4';
+    $pane->subtype = 'ca_products-ca_products_category_admin';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -590,6 +521,7 @@ return FALSE;
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-1'] = $pane;
     $display->panels['middle'][0] = 'new-1';
   $display->hide_title = PANELS_TITLE_FIXED;
@@ -598,16 +530,117 @@ return FALSE;
   $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_category_admin'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'ca_products_category_list';
+  $page->name = 'ca_products_parent_category_sort';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Product Category List';
+  $page->admin_title = 'CA Products: Parent Category Sort';
+  $page->admin_description = '';
+  $page->path = 'products/admin/sort';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Sort Categories',
+    'name' => 'navigation',
+    'weight' => '20',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_parent_category_sort_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_parent_category_sort';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'CA Products: Parent Product Sort',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Parent Categories';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_sorting-ca_products_parent_category_sort';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-2';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['ca_products_parent_category_sort'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'ca_products_product_catalog';
+  $page->task = 'page';
+  $page->admin_title = 'CA Products: Product Catalog';
   $page->admin_description = '';
   $page->path = 'products/view';
   $page->access = array(
-    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'default tab',
@@ -617,43 +650,35 @@ return FALSE;
     'parent' => array(
       'type' => 'normal',
       'title' => 'Products',
-      'name' => 'primary-links',
+      'name' => 'main-menu',
       'weight' => '0',
     ),
   );
   $page->arguments = array();
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_category_list_panel_context';
+  $handler->name = 'page_ca_products_product_catalog_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'ca_products_category_list';
+  $handler->subtask = 'ca_products_product_catalog';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'CA Products: Product Category List Template One',
+    'title' => 'CA Products: Product Category',
     'no_blocks' => 0,
     'pipeline' => 'standard',
-    'css_id' => 'ca-products-template-one',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'ca_products_category_list_template',
-          'settings' => array(
-            'ca_products_category_list_template' => 'ca_products_category_list_template_one',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -663,14 +688,14 @@ return FALSE;
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Products';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_1';
+    $pane->subtype = 'ca_products-ca_products_category_list_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -681,53 +706,55 @@ return FALSE;
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_category_list'] = $page;
+  $pages['ca_products_product_catalog'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'ca_products_category_sort';
+  $page->name = 'ca_products_product_sort';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Product Category Sort';
+  $page->admin_title = 'CA Products: Product Sort';
   $page->admin_description = '';
-  $page->path = 'products/ca_products_category_admin/sort';
+  $page->path = 'node/%node/ca_product_admin/product_sort';
   $page->access = array(
     'plugins' => array(
       0 => array(
-        'name' => 'worx_plugins_role_access',
+        'name' => 'role',
         'settings' => array(
-          'worx_role' => 'products admin',
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
         ),
+        'context' => 'logged-in-user',
         'not' => FALSE,
       ),
       1 => array(
-        'name' => 'php',
+        'name' => 'node_type',
         'settings' => array(
-          'description' => 'If user 1',
-          'php' => 'global $user;
-if ($user->uid == 1) {
-return TRUE;
-}
-else {
-return FALSE;
-}',
+          'type' => array(
+            'ca_product_category' => 'ca_product_category',
+          ),
         ),
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
     ),
-    'logic' => 'or',
+    'logic' => 'and',
   );
   $page->menu = array(
     'type' => 'tab',
-    'title' => 'Sort Order',
+    'title' => 'Sort Products',
     'name' => 'navigation',
-    'weight' => '1',
+    'weight' => '40',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -735,27 +762,38 @@ return FALSE;
       'weight' => '0',
     ),
   );
-  $page->arguments = array();
-  $page->conf = array();
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Node: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_category_sort_panel_context';
+  $handler->name = 'page_ca_products_product_sort_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'ca_products_category_sort';
+  $handler->subtask = 'ca_products_product_sort';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'CA Products: Product Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -765,14 +803,14 @@ return FALSE;
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Products';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_5';
+    $pane->subtype = 'ca_products_sorting-ca_products_product_sort';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -783,39 +821,45 @@ return FALSE;
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->locks = array();
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][0] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_category_sort'] = $page;
+  $pages['ca_products_product_sort'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'ca_products_sub_category_admin';
+  $page->name = 'ca_products_products_administration';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Product Sub Category Admin';
+  $page->admin_title = 'CA Products: Products Administration';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_products_sub_category_admin/admin';
+  $page->path = 'node/%node/ca_product_admin/administration';
   $page->access = array(
     'plugins' => array(
       0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
             'ca_product_category' => 'ca_product_category',
           ),
         ),
-        'context' => 'argument_nid_1',
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'worx_plugins_role_access',
-        'settings' => array(
-          'worx_role' => 'products admin',
-        ),
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
     ),
@@ -837,30 +881,34 @@ return FALSE;
     'node' => array(
       'id' => 1,
       'identifier' => 'Node: ID',
-      'name' => 'nid',
+      'name' => 'entity_id:node',
       'settings' => array(),
     ),
   );
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_sub_category_admin_panel_context';
+  $handler->name = 'page_ca_products_products_administration_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'ca_products_sub_category_admin';
+  $handler->subtask = 'ca_products_products_administration';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'CA Products: Product Admin',
     'no_blocks' => 0,
     'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -870,14 +918,14 @@ return FALSE;
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Products';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-5';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_6';
+    $pane->subtype = 'ca_products-ca_products_sub_cat_admin';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -888,39 +936,63 @@ return FALSE;
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->locks = array();
+    $display->content['new-5'] = $pane;
+    $display->panels['middle'][0] = 'new-5';
+    $pane = new stdClass();
+    $pane->pid = 'new-6';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products-ca_products_product_admin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][1] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-6';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_sub_category_admin'] = $page;
+  $pages['ca_products_products_administration'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'ca_products_sub_category_sort';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Product Sub Category Sort';
+  $page->admin_title = 'CA Products: Sub Category Sort';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_products_sub_category_admin/sort';
+  $page->path = 'node/%node/ca_product_admin/sort';
   $page->access = array(
     'plugins' => array(
       0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
         'name' => 'node_type',
         'settings' => array(
           'type' => array(
             'ca_product_category' => 'ca_product_category',
           ),
         ),
-        'context' => 'argument_nid_1',
-        'not' => FALSE,
-      ),
-      1 => array(
-        'name' => 'worx_plugins_role_access',
-        'settings' => array(
-          'worx_role' => 'products admin',
-        ),
+        'context' => 'argument_entity_id:node_1',
         'not' => FALSE,
       ),
     ),
@@ -928,9 +1000,9 @@ return FALSE;
   );
   $page->menu = array(
     'type' => 'tab',
-    'title' => 'Sort Order',
+    'title' => 'Category Sort',
     'name' => 'navigation',
-    'weight' => '1',
+    'weight' => '29',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -942,13 +1014,15 @@ return FALSE;
     'node' => array(
       'id' => 1,
       'identifier' => 'Node: ID',
-      'name' => 'nid',
+      'name' => 'entity_id:node',
       'settings' => array(),
     ),
   );
-  $page->conf = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_ca_products_sub_category_sort_panel_context';
@@ -957,15 +1031,17 @@ return FALSE;
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
+    'title' => 'CA Products: Sub Category Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -975,14 +1051,14 @@ return FALSE;
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Product Sub Categories';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-7';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products-panel_pane_7';
+    $pane->subtype = 'ca_products_sorting-ca_products_sub_category_sort';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -993,14 +1069,15 @@ return FALSE;
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->locks = array();
+    $display->content['new-7'] = $pane;
+    $display->panels['middle'][0] = 'new-7';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-7';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_sub_category_sort'] = $page;
 
- return $pages;
+  return $pages;
 
 }
