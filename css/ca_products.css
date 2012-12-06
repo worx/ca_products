@@ -1,60 +1,26 @@
-.pane-ca-products-ca-products-category-list-1 td,
-.pane-ca-products-ca-products-sub-cat-list-one td {
-  text-align: center;
-  padding: 10px;
-  width: 25%;
-}
+/* Context Admin Products Feature CSS */
+  /* Product Category List CSS -- Path = products */
+    /* Template One */
+      #ca-products-template-one .pane-ca-products-panel-pane-1 .view-display-id-panel_pane_1 .views-view-grid tr td {width: 25%; text-align: center; vertical-align: bottom;}
 
-.pane-ca-products-ca-products-sub-cat-list-one {
-  border-bottom: 1px solid #D2D2D2;
-}
+  /* Product Category Node CSS */
+    /* Template One */
+      #ca-products-template-one .pane-field-ca-product-category-image {float: left; margin-right: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-2 {clear: both; border-top: 1px solid #D2D2D2; padding-top: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-2 .view-display-id-panel_pane_2 .views-view-grid tr td {width: 25%; text-align: center; vertical-align: bottom;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 {clear: both; border-top: 1px solid #D2D2D2; padding-top: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-row .views-field-field-ca-products-images-fid {float: left; margin-right: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-row .views-field-view-node {text-align: right; margin-right: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-row .views-field-nothing {clear: both; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #D2D2D2;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-row-last .views-field-nothing {display: none;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-field-field-ca-products-related-app-nid .field-item {float: left; margin-right: 10px;}
+      #ca-products-template-one .pane-ca-products-panel-pane-3 .view-display-id-panel_pane_3 .views-field-field-ca-products-related-app-nid .field-item::after {content: ",";}
 
-.pane-ca-products-ca-products-product-list-1 {
-  padding-top: 10px;
-}
-
-.pane-ca-products-ca-products-product-list-1 .views-field-field-ca-product-image {
-  float: left;
-  margin-right: 10px;
-}
-
-.pane-ca-products-ca-products-product-list-1 .views-field-view-node {
-  text-align: right;
-  margin-right: 10px;
-}
-
-.pane-ca-products-ca-products-product-list-1 .views-field-nothing {
-  margin: 10px 40px;
-  border-top: 1px solid #D2D2D2;
-}
-
-.pane-ca-products-ca-products-node-1 .views-field-field-ca-product-image {
-  float: left;
-  margin-right: 20px;
-}
-
-.pane-ca-products-ca-products-node-1 .views-field-field-ca-product-image-1 {
-  clear: left;
-  float: left;
-  margin-right: 20px;
-  width: 200px;
-}
-
-.pane-ca-products-ca-products-node-1 .views-field-field-ca-product-image-1 a {
-  display: inline-block;
-  padding-top: 5px;
-}
-
-.pane-ca-products-ca-products-node-video-1 {
-  border-top: 1px solid #D2D2D2;
-  margin: 0 40px;
-  padding: 10px;
-}
-
-.pane-ca-products-ca-products-node-video-1 td {
-  padding: 10px;
-}
-
-.pane-ca-products-ca-products-node-video-1 td .content > div {
-  margin: 0 auto;
-}
+  /* Product Node CSS */
+    /* Template One */
+      #ca-products-template-one .pane-field-ca-products-images {float: left; margin-right: 10px;}
+      #ca-products-template-one .view-display-id-panel_pane_8 .views-field-field-ca-products-images-fid {float: left; margin: 0 10px 10px 0;}
+      #ca-products-template-one .view-display-id-panel_pane_8 .views-field-field-ca-products-images-fid-1 {clear: left; float: left; margin-right: 10px; width: 200px;}
+      #ca-products-template-one .view-display-id-panel_pane_8 .views-field-field-ca-products-images-fid-1 .field-item {float: left; margin-right: 5px;}
+      #ca-products-template-one .pane-field-ca-products-related-app .field-field-ca-products-related-app .field-item {float: left; margin-right: 10px;}
+      #ca-products-template-one .pane-field-ca-products-related-app .field-field-ca-products-related-app .field-item::after {content: ",";}
