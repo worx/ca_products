@@ -26,7 +26,7 @@ function ca_products_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function ca_products_views_api() {
-  return array("api" => "3.0");
+  return array("version" => "3.0");
 }
 
 /**
