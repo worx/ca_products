@@ -26,6 +26,7 @@
 .pane-ca-products-ca-products-product-list-1 .views-field-nothing {
   margin: 10px 40px;
   border-top: 1px solid #D2D2D2;
+  clear: both;
 }
 
 .pane-ca-products-ca-products-node-1 .views-field-field-ca-product-image {
