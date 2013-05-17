@@ -13,7 +13,7 @@ function ca_products_user_default_roles() {
   // Exported role: products admin.
   $roles['products admin'] = array(
     'name' => 'products admin',
-    'weight' => '6',
+    'weight' => 6,
     'machine_name' => 'products_admin',
   );
 

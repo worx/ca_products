@@ -14,9 +14,9 @@ function ca_products_user_default_permissions() {
   $permissions['create ca_product content'] = array(
     'name' => 'create ca_product content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -25,9 +25,9 @@ function ca_products_user_default_permissions() {
   $permissions['create ca_product_category content'] = array(
     'name' => 'create ca_product_category content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -36,9 +36,9 @@ function ca_products_user_default_permissions() {
   $permissions['delete any ca_product content'] = array(
     'name' => 'delete any ca_product content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -47,9 +47,9 @@ function ca_products_user_default_permissions() {
   $permissions['delete any ca_product_category content'] = array(
     'name' => 'delete any ca_product_category content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -58,9 +58,9 @@ function ca_products_user_default_permissions() {
   $permissions['delete own ca_product content'] = array(
     'name' => 'delete own ca_product content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -69,9 +69,9 @@ function ca_products_user_default_permissions() {
   $permissions['delete own ca_product_category content'] = array(
     'name' => 'delete own ca_product_category content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -80,9 +80,9 @@ function ca_products_user_default_permissions() {
   $permissions['edit any ca_product content'] = array(
     'name' => 'edit any ca_product content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -91,9 +91,9 @@ function ca_products_user_default_permissions() {
   $permissions['edit any ca_product_category content'] = array(
     'name' => 'edit any ca_product_category content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -102,9 +102,9 @@ function ca_products_user_default_permissions() {
   $permissions['edit own ca_product content'] = array(
     'name' => 'edit own ca_product content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
@@ -113,9 +113,9 @@ function ca_products_user_default_permissions() {
   $permissions['edit own ca_product_category content'] = array(
     'name' => 'edit own ca_product_category content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'products admin',
-      2 => 'webmaster',
+      'administrator' => 'administrator',
+      'products admin' => 'products admin',
+      'webmaster' => 'webmaster',
     ),
     'module' => 'node',
   );
