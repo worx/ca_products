@@ -5,3 +5,59 @@
  */
 
 include_once 'ca_products.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function ca_products_menu() {
+  $items['admin/config/worx_features/product'] = array(
+    'title' => 'Product Configuration',
+    'description' => 'Override settings for ca_products',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ca_products_settings_form'),
+    'access arguments' => array('worx features admin'),
+    'file' => 'ca_products.admin.inc',
+    'file path' => drupal_get_path('module', 'ca_products'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/worx_features/product/general'] = array(
+    'title' => 'General Settings',
+    'description' => 'Override settings for ca_products',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ca_products_settings_form'),
+    'access arguments' => array('worx features admin'),
+    'file' => 'ca_products.admin.inc',
+    'file path' => drupal_get_path('module', 'ca_products'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function ca_products_menu_alter(&$items) {
+  $items['product']['title'] = variable_get('ca_products_menu_title', 'Products');
+}
+
+/**
+ * Implements hook_panels_pre_render().
+ */
+function ca_products_panels_pre_render($panel, $renderer) {
+  if (isset($panel->content['new-9']) && $panel->content['new-9']->subtype == 'ca_products_panel_title') {
+    $panel->title = variable_get('ca_products_panel_title', 'Products');
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function ca_products_views_pre_view(&$view, &$display_id, &$args) {
+  if ($display_id == 'ca_products_list_1') {
+    $view->set_items_per_page(variable_get('ca_products_list_count', 5));
+  }
+  elseif ($display_id == 'ca_products_block_1') {
+    $view->set_items_per_page(variable_get('ca_products_block_count', 1));
+  }
+}
