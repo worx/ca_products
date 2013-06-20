@@ -18,4 +18,9 @@ function ca_products_install() {
   $imce_roles_profiles[212478245] = $imce_roles_profiles_vaule;
 
   variable_set('imce_roles_profiles', $imce_roles_profiles);
+	
+  // Set the Pathauto for the node.
+  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:field_ca_category_parent]/[node:title]');
+	
+  variable_set('pathauto_node_ca_product_pattern', 'products/[node:field_ca_product_parent_category]/[node:title]');
 }

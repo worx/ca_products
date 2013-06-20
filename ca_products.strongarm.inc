@@ -208,20 +208,6 @@ function ca_products_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_ca_product_category_pattern';
-  $strongarm->value = 'products/[node:field_ca_category_parent]/[node:title]';
-  $export['pathauto_node_ca_product_category_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_ca_product_pattern';
-  $strongarm->value = 'products/[node:field_ca_product_parent_category]/[node:title]';
-  $export['pathauto_node_ca_product_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'show_preview_changes_ca_product';
   $strongarm->value = 1;
   $export['show_preview_changes_ca_product'] = $strongarm;
