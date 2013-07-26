@@ -1,9 +1,10 @@
-.pane-ca-products-ca-products-category-list-1 td,
-.pane-ca-products-ca-products-sub-cat-list-one td {
+.pane-ca-products-list-ca-products-category-list-1 td, 
+.pane-ca-products-list-ca-products-sub-cat-list-one td {
   text-align: center;
   padding: 10px;
   width: 25%;
 }
+
 
 .pane-ca-products-ca-products-sub-cat-list-one {
   border-bottom: 1px solid #D2D2D2;
