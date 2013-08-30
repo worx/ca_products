@@ -783,6 +783,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Category Image */
   $handler->display->display_options['fields']['field_ca_product_category_image']['id'] = 'field_ca_product_category_image';
