@@ -31,10 +31,24 @@ function ca_products_settings_form() {
     '#required' => TRUE,
     '#description' => t('What would you like the menu title to be?'),
   );
+  $form['ca_products_cat_list_count'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Categories per page'),
+    '#default_value' => variable_get('ca_products_cat_list_count', 20),
+    '#required' => TRUE,
+    '#description' => t('How many categories would you like displayed per page? Suggested in groups of 4.'),
+  );
+  $form['ca_products_sub_cat_list_count'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Sub categories per page'),
+    '#default_value' => variable_get('ca_products_sub_cat_list_count', 20),
+    '#required' => TRUE,
+    '#description' => t('How many sub categories would you like displayed per page? Suggested in groups of 4.'),
+  );
   $form['ca_products_list_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Product\'s per page'),
-    '#default_value' => variable_get('ca_products_list_count', 5),
+    '#default_value' => variable_get('ca_products_list_count', 10),
     '#required' => TRUE,
     '#description' => t('How many products would you like displayed per page?'),
   );
