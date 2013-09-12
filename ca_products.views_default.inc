@@ -664,6 +664,7 @@ function ca_products_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -712,6 +713,7 @@ function ca_products_views_default_views() {
 
   /* Display: CA Products: Category List Template One */
   $handler = $view->new_display('panel_pane', 'CA Products: Category List Template One', 'ca_products_category_list_1');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -835,6 +837,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Sub Category List Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Product List View Template One */
   $handler = $view->new_display('panel_pane', 'CA Products: Product List View Template One', 'ca_products_product_list_1');
@@ -898,6 +901,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Product List Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $export['ca_products_list'] = $view;
 
   $view = new view();

@@ -41,7 +41,7 @@ function ca_products_settings_form() {
   $form['ca_products_sub_cat_list_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Sub categories per page'),
-    '#default_value' => variable_get('ca_products_sub_cat_list_count', 20),
+    '#default_value' => variable_get('ca_products_sub_cat_list_count', 4),
     '#required' => TRUE,
     '#description' => t('How many sub categories would you like displayed per page? Suggested in groups of 4.'),
   );
