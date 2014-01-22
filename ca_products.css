@@ -25,14 +25,23 @@
 }
 
 .pane-ca-products-list-ca-products-product-list-1 .views-field-nothing {
-  margin: 10px 40px;
-  border-top: 1px solid #D2D2D2;
+  border-bottom: 1px solid #D2D2D2;
   clear: both;
+  margin: 0 40px 10px;
+  padding-top: 10px;
 }
 
 .pane-ca-products-node-ca-products-node-1a {
   float: left;
-  margin-right: 20px;
+  margin: 0;
+}
+
+.pane-ca-products-node-ca-products-node-1a .block-inner {
+  margin: 0;
+}
+
+.pane-ca-products-node-ca-products-node-1a .views-field-field-ca-product-image {
+  margin:0 15px 5px 0;
 }
 
 .pane-ca-products-node-ca-products-node-1b {

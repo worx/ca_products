@@ -1,0 +1,75 @@
+.ca-product-list table, 
+.ca-product-list tbody, 
+.ca-product-list tr, 
+.ca-product-list tr td, 
+.node-type-ca-product-category table, 
+.node-type-ca-product-category tbody, 
+.node-type-ca-product-category tr, 
+.node-type-ca-product-category tr td {
+  display:block;
+  width: 100%;
+  border: none;
+}
+
+.pane-ca-products-list-ca-products-sub-cat-list-one .block-inner {
+  border-bottom: 1px solid;
+  padding-bottom: 7px;
+}
+
+.ca-product-list tr td, 
+.node-type-ca-product-category tr td {
+  float: left;
+  padding: 0;
+  vertical-align: text-top;
+}
+
+.pane-ca-products-list-ca-products-product-list-1 .views-field-field-ca-product-image {
+    float: none;
+    margin-right: 0;
+    text-align: center;
+}
+
+@media only screen and (min-width:481px) {
+  .ca-product-list tr td, .node-type-ca-product-category tr td {
+    width: 50%;
+  }
+
+  .pane-ca-products-list-ca-products-product-list-1 .views-field-field-ca-product-image {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 675px) {
+  .ca-product-list td:nth-child(2n + 1), .node-type-ca-product-category td:nth-child(2n + 1) {clear: left;}
+}
+
+@media only screen and (min-width:675px) {
+  .ca-product-list tr td, .node-type-ca-product-category tr td {
+    width: 33%;
+  }
+}
+
+@media only screen and (min-width: 675px) and (max-width: 899px) {
+  .ca-product-list tr:nth-child(1) td:nth-child(3n + 1), .node-type-ca-product-category tr:nth-child(1) td:nth-child(3n + 1) {clear: left;}
+  .ca-product-list tr:nth-child(2) td:nth-child(3), .node-type-ca-product-category tr:nth-child(2) td:nth-child(3) {clear: left;}
+  .ca-product-list tr:nth-child(3) td:nth-child(2), .node-type-ca-product-category tr:nth-child(3) td:nth-child(2) {clear: left;}
+  .ca-product-list tr:nth-child(4) td:nth-child(3n + 1), .node-type-ca-product-category tr:nth-child(4) td:nth-child(3n + 1) {clear: left;}
+  .ca-product-list tr:nth-child(5) td:nth-child(3), .node-type-ca-product-category tr:nth-child(5) td:nth-child(3) {clear: left;}
+}
+
+@media only screen and (min-width:900px) {
+  .ca-product-list table, 
+  .ca-product-list tbody {display: table;}
+  .ca-product-list tr {display: table-row;}
+  .ca-product-list td {display: table-celll;}
+
+  .ca-product-list tr td, .node-type-ca-product-category tr td {
+    padding: 0;
+    width: 25%;
+  }
+
+  .ca-product-list tr td, .ca-product-list tr th, .node-type-ca-product-category tr td,  .node-type-ca-product-category tr th {
+    text-align: center;
+  }
+}
