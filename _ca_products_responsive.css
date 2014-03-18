@@ -39,6 +39,10 @@
   margin: 0 10px;
 }
 
+.pane-ca-products-node-ca-products-node-1a .views-field-field-ca-product-image {
+    margin: 0 0 5px;
+}
+
 .node-type-ca-product .pane-ca-products-node-ca-products-node-1b {
   float: none;
   margin: 0;
@@ -70,7 +74,7 @@
   }
   
   .node-type-ca-product .pane-ca-products-node-ca-products-node-1a .views-field-field-ca-product-image {
-    margin: 0 15px 5px 10px;
+    margin: 0 15px 5px 0;
   }
 
   .pane-ca-products-node-ca-products-node-1a .block-inner {
@@ -79,7 +83,7 @@
   
   .node-type-ca-product .pane-ca-products-node-ca-products-node-1b {
     float: left;
-    margin: 0 15px 5px 0;
+    margin: 0 15px 5px 10px;
     width: 200px;
   }
 
