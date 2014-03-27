@@ -47,8 +47,13 @@
 .pane-ca-products-node-ca-products-node-1b {
   clear: left;
   float: left;
-  margin-right: 20px;
+  padding: 0 15px 5px 0;
   width: 200px;
+}
+
+.pane-ca-products-node-ca-products-node-1b td {
+  padding: 0;
+  text-align: center;
 }
 
 .pane-ca-products-node-ca-products-node-1 .views-field-field-ca-product-image-1 a {
