@@ -158,7 +158,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = 1;
   $handler->conf = array(
-    'title' => 'CA Products: Category Template One',
+    'title' => 'CA Products: Category Grid Template One',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -177,6 +177,13 @@ function ca_products_default_page_manager_handlers() {
             ),
           ),
           'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one',
+          ),
           'not' => FALSE,
         ),
       ),
@@ -268,6 +275,133 @@ function ca_products_default_page_manager_handlers() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['ca_products_node_view_panel_context_2'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'ca_products_node_view_panel_context_3';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 3;
+  $handler->conf = array(
+    'title' => 'CA Products: Category Flex Template One',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-product-category-node-flex ca-product-category-node-flex-template-1',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ca_product_category' => 'ca_product_category',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one_flex',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '71eed9e2-f07d-4f23-afab-a6ad5f67f25a';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_ca_product_category_desc';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '95557168-ce26-4f32-bee4-5fff2edc9d84';
+    $display->content['new-95557168-ce26-4f32-bee4-5fff2edc9d84'] = $pane;
+    $display->panels['middle'][0] = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
+    $pane = new stdClass();
+    $pane->pid = 'new-8477f158-253d-4cd4-81c1-08b5d46681b7';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_list-ca_products_sub_cat_flex_one';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '8477f158-253d-4cd4-81c1-08b5d46681b7';
+    $display->content['new-8477f158-253d-4cd4-81c1-08b5d46681b7'] = $pane;
+    $display->panels['middle'][1] = 'new-8477f158-253d-4cd4-81c1-08b5d46681b7';
+    $pane = new stdClass();
+    $pane->pid = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_list-ca_products_product_list_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
+    $display->content['new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed'] = $pane;
+    $display->panels['middle'][2] = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['ca_products_node_view_panel_context_3'] = $handler;
 
   return $export;
 }
@@ -757,7 +891,7 @@ function ca_products_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'CA Products: Product Category',
+    'title' => 'CA Products: Product Category Grid',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -766,6 +900,17 @@ function ca_products_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    ),
   );
   $display = new panels_display();
   $display->layout = 'onecol';
@@ -800,6 +945,74 @@ function ca_products_default_page_manager_pages() {
     $pane->uuid = '2a3b90e3-ee8c-445a-bb3a-cbbe048e945b';
     $display->content['new-2a3b90e3-ee8c-445a-bb3a-cbbe048e945b'] = $pane;
     $display->panels['middle'][0] = 'new-2a3b90e3-ee8c-445a-bb3a-cbbe048e945b';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_product_catalog_panel_context_2';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_product_catalog';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'CA Products: Product Category Flex Grid',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one_flex',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'a4b5bc44-ee90-4905-9863-de507514626b';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_list-ca_products_category_flex_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9bfe2696-cafc-454d-89bb-27f477b006a4';
+    $display->content['new-9bfe2696-cafc-454d-89bb-27f477b006a4'] = $pane;
+    $display->panels['middle'][0] = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

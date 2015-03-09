@@ -74,3 +74,18 @@
 .pane-ca-products-node-ca-products-node-video-1 td .content > div {
   margin: 0 auto;
 }
+
+/* Flex List */
+.ca-product-flex .view-content,
+.ca-product-category-node-flex .view-content {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.ca-product-flex .views-row,
+.ca-product-category-node-flex .view-display-id-ca_products_sub_cat_flex_one .views-row {
+  text-align: center;
+  width: 25%
+}
+
+
