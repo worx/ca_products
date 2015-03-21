@@ -1,19 +1,53 @@
 <?php
 
 /**
- * Implementation of hook_install().
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
  */
 function ca_products_install() {
-  variable_set('ca_products_category_list_template', 'ca_products_category_list_template_one');
-  variable_set('ca_products_category_node_template', 'ca_products_category_node_template_one');
-  variable_set('ca_products_product_node_template', 'ca_products_product_node_template_one');
-}
+  // Update the imce roles profiles to set the Admin and writer role.
+  $imce_roles_profiles = variable_get('imce_roles_profiles');
 
-/**
- * Implementation of hook_uninstall().
- */
-function ca_products_uninstall() {
-  variable_del('ca_products_category_list_template');
-  variable_del('ca_products_category_node_template');
-  variable_del('ca_products_product_node_template');
+  $imce_roles_profiles_vaule = array (
+    'weight' => '-9',
+    'public_pid' => 2,
+    'private_pid' => 2,
+  );
+
+  $imce_roles_profiles[212478245] = $imce_roles_profiles_vaule;
+
+  variable_set('imce_roles_profiles', $imce_roles_profiles);
+  
+  // Set the Pathauto for the node.
+  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:field_ca_category_parent]/[node:title]');
+  
+  variable_set('pathauto_node_ca_product_pattern', 'products/[node:field_ca_product_parent_category]/[node:title]');
+  
+  // Sets the Product Admin role to have permission to create files.
+  $insert = db_insert('role_permission')
+    ->fields(array(
+      'rid' => '212478245',
+      'permission' => 'create files',
+      'module' => 'file_entity',
+    ))
+    ->execute();
+  
+  // Sets the Product Admin role to have permission to access media browser.
+  $insert = db_insert('role_permission')
+    ->fields(array(
+      'rid' => '212478245',
+      'permission' => 'access media browser',
+      'module' => 'media',
+    ))
+    ->execute();
+  
+  // Sets the Product Admin role to have permission to add media from remote sources.
+  $insert = db_insert('role_permission')
+    ->fields(array(
+      'rid' => '212478245',
+      'permission' => 'add media from remote sources',
+      'module' => 'media_internet',
+    ))
+    ->execute();
 }
