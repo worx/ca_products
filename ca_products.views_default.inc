@@ -47,6 +47,12 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Contextual filter: Content: Language */
+  $handler->display->display_options['arguments']['language']['id'] = 'language';
+  $handler->display->display_options['arguments']['language']['table'] = 'node';
+  $handler->display->display_options['arguments']['language']['field'] = 'language';
+  $handler->display->display_options['arguments']['language']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['language']['summary']['format'] = 'default_summary';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -238,6 +244,16 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Category Admin';
   $handler->display->display_options['pane_category']['name'] = 'CA Admin';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'language' => array(
+      'type' => 'context',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Language',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Sub Category Admin */
@@ -448,6 +464,16 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Sub Category Admin';
   $handler->display->display_options['pane_category']['name'] = 'CA Admin';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_category_parent_target_id' => array(
+      'type' => 'none',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_category_parent)',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Product Admin */
@@ -649,7 +675,43 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Product Admin';
   $handler->display->display_options['pane_category']['name'] = 'CA Admin';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_product_parent_category_target_id' => array(
+      'type' => 'none',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_product_parent_category)',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
+  $translatables['ca_products_admin'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+    t('CA Products: Category Admin'),
+    t('- Choose an operation -'),
+    t('Title'),
+    t('Published'),
+    t('Edit link'),
+    t('Edit'),
+    t('CA Admin'),
+    t('CA Products: Sub Category Admin'),
+    t('CA Products: Product Admin'),
+  );
   $export['ca_products_admin'] = $view;
 
   $view = new view();
@@ -696,6 +758,12 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Contextual filter: Content: Language */
+  $handler->display->display_options['arguments']['language']['id'] = 'language';
+  $handler->display->display_options['arguments']['language']['table'] = 'node';
+  $handler->display->display_options['arguments']['language']['field'] = 'language';
+  $handler->display->display_options['arguments']['language']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['language']['summary']['format'] = 'default_summary';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -771,6 +839,16 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Category List Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'language' => array(
+      'type' => 'context',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Language',
+    ),
+  );
 
   /* Display: CA Products: Sub Category List Template One */
   $handler = $view->new_display('panel_pane', 'CA Products: Sub Category List Template One', 'ca_products_sub_cat_list_one');
@@ -837,6 +915,24 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Sub Category List Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_category_parent_target_id' => array(
+      'type' => 'none',
+      'context' => 'entity:node.author',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_category_parent)',
+    ),
+    'language' => array(
+      'type' => 'context',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Language',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Product List View Template One */
@@ -901,6 +997,24 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Product List Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_product_parent_category_target_id' => array(
+      'type' => 'none',
+      'context' => 'entity:node.author',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_product_parent_category)',
+    ),
+    'language' => array(
+      'type' => 'context',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Language',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Category Flex Template One */
@@ -1030,6 +1144,32 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
+  $translatables['ca_products_list'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Coming soon.'),
+    t('All'),
+    t('CA Products: Category List Template One'),
+    t('CA List'),
+    t('CA Products: Sub Category List Template One'),
+    t('CA Products: Product List View Template One'),
+    t('Read More'),
+    t('CA Products: Product List Template One'),
+    t('CA Products: Category Flex Template One'),
+    t('CA Products: Sub Category Flex Template One'),
+  );
   $export['ca_products_list'] = $view;
 
   $view = new view();
@@ -1212,6 +1352,27 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Node View Videos Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA Node';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $translatables['ca_products_node'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('CA Products: Node View Template One A'),
+    t('All'),
+    t('CA Node'),
+    t('CA Products: Node View Template One B'),
+    t('CA Products: Node View Videos Template One'),
+  );
   $export['ca_products_node'] = $view;
 
   $view = new view();
@@ -1269,6 +1430,12 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Contextual filter: Content: Language */
+  $handler->display->display_options['arguments']['language']['id'] = 'language';
+  $handler->display->display_options['arguments']['language']['table'] = 'node';
+  $handler->display->display_options['arguments']['language']['field'] = 'language';
+  $handler->display->display_options['arguments']['language']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['language']['summary']['format'] = 'default_summary';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1311,6 +1478,16 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Parent Category Sort';
   $handler->display->display_options['pane_category']['name'] = 'CA Sort';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'language' => array(
+      'type' => 'context',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Language',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Sub-Category Sort */
@@ -1346,6 +1523,16 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Sub-Category Sort';
   $handler->display->display_options['pane_category']['name'] = 'CA Sort';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_category_parent_target_id' => array(
+      'type' => 'none',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_category_parent)',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: CA Products: Product Sort */
@@ -1381,7 +1568,32 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Product Sort';
   $handler->display->display_options['pane_category']['name'] = 'CA Sort';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'field_ca_product_parent_category_target_id' => array(
+      'type' => 'none',
+      'context' => 'language.language',
+      'context_optional' => 0,
+      'panel' => 0,
+      'fixed' => '',
+      'label' => 'Content: Parent Category (field_ca_product_parent_category)',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
+  $translatables['ca_products_sorting'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Weight'),
+    t('All'),
+    t('CA Products: Parent Category Sort'),
+    t('CA Sort'),
+    t('CA Products: Sub-Category Sort'),
+    t('CA Products: Product Sort'),
+  );
   $export['ca_products_sorting'] = $view;
 
   return $export;

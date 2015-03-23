@@ -240,7 +240,11 @@ function ca_products_default_page_manager_handlers() {
     $pane->subtype = 'ca_products_list-ca_products_sub_cat_list_one';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        1 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -259,7 +263,11 @@ function ca_products_default_page_manager_handlers() {
     $pane->subtype = 'ca_products_list-ca_products_product_list_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        1 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -709,7 +717,15 @@ function ca_products_default_page_manager_pages() {
     'body_classes_to_add' => 'ca-admin ca-products-admin',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Language',
+        'keyword' => 'language',
+        'name' => 'language',
+        'language' => 'current',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -733,7 +749,11 @@ function ca_products_default_page_manager_pages() {
     $pane->subtype = 'ca_products_admin-ca_products_category_admin';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -811,7 +831,15 @@ function ca_products_default_page_manager_pages() {
     'body_classes_to_add' => 'ca-admin ca-products-admin',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Language',
+        'keyword' => 'language',
+        'name' => 'language',
+        'language' => 'current',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
   );
   $display = new panels_display();
@@ -835,7 +863,11 @@ function ca_products_default_page_manager_pages() {
     $pane->subtype = 'ca_products_sorting-ca_products_parent_category_sort';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -898,7 +930,15 @@ function ca_products_default_page_manager_pages() {
     'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Language',
+        'keyword' => 'language',
+        'name' => 'language',
+        'language' => 'current',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
     'access' => array(
       'plugins' => array(
@@ -927,13 +967,17 @@ function ca_products_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-2a3b90e3-ee8c-445a-bb3a-cbbe048e945b';
+    $pane->pid = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'ca_products_list-ca_products_category_list_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -942,9 +986,9 @@ function ca_products_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '2a3b90e3-ee8c-445a-bb3a-cbbe048e945b';
-    $display->content['new-2a3b90e3-ee8c-445a-bb3a-cbbe048e945b'] = $pane;
-    $display->panels['middle'][0] = 'new-2a3b90e3-ee8c-445a-bb3a-cbbe048e945b';
+    $pane->uuid = '8d54d760-0fcd-44c3-9175-f7978632a4cf';
+    $display->content['new-8d54d760-0fcd-44c3-9175-f7978632a4cf'] = $pane;
+    $display->panels['middle'][0] = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1239,7 +1283,11 @@ function ca_products_default_page_manager_pages() {
     $pane->subtype = 'ca_products_admin-ca_products_sub_cat_admin';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -1258,7 +1306,11 @@ function ca_products_default_page_manager_pages() {
     $pane->subtype = 'ca_products_admin-ca_products_product_admin';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
