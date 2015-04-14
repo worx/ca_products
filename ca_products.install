@@ -24,30 +24,17 @@ function ca_products_install() {
   
   variable_set('pathauto_node_ca_product_pattern', 'products/[node:field_ca_product_parent_category]/[node:title]');
   
-  // Sets the Product Admin role to have permission to create files.
-  $insert = db_insert('role_permission')
-    ->fields(array(
-      'rid' => '212478245',
-      'permission' => 'create files',
-      'module' => 'file_entity',
-    ))
-    ->execute();
-  
-  // Sets the Product Admin role to have permission to access media browser.
-  $insert = db_insert('role_permission')
-    ->fields(array(
-      'rid' => '212478245',
-      'permission' => 'access media browser',
-      'module' => 'media',
-    ))
-    ->execute();
-  
-  // Sets the Product Admin role to have permission to add media from remote sources.
-  $insert = db_insert('role_permission')
-    ->fields(array(
-      'rid' => '212478245',
-      'permission' => 'add media from remote sources',
-      'module' => 'media_internet',
-    ))
-    ->execute();
+  /**
+   * Sets the Product Admin role to have permission to
+   * create files, access media browser,
+   * add media from remote sources, assign node weights.
+   */
+  user_role_change_permissions(212478245, 
+    array(
+      'create files' => TRUE,
+      'access media browser' => TRUE,
+      'add media from remote sources' => TRUE,
+      'assign node weights' => TRUE,
+    )
+  );
 }
