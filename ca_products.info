@@ -8,6 +8,7 @@ dependencies[] = colorbox
 dependencies[] = context_admin
 dependencies[] = entityreference
 dependencies[] = features
+dependencies[] = multiupload_imagefield_widget
 dependencies[] = panels
 dependencies[] = pathauto
 dependencies[] = role_export
