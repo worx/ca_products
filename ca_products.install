@@ -18,6 +18,9 @@ function ca_products_install() {
   $imce_roles_profiles[212478245] = $imce_roles_profiles_vaule;
 
   variable_set('imce_roles_profiles', $imce_roles_profiles);
+
+  // Get the worx_aurora_base_enable variable to default set if not already set.
+  variable_get('worx_aurora_base_enable', 'worx_aurora_base_disabled');
   
   // Set the Pathauto for the node.
   variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:field_ca_category_parent]/[node:title]');
@@ -34,7 +37,32 @@ function ca_products_install() {
       'create files' => TRUE,
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
-      'assign node weight' => TRUE,
+      'assign node weights' => TRUE,
+    )
+  );
+}
+
+/**
+ * Setting worx_aurora_base_enable default so that panels can work corretly when aura base feature is not enabled.
+ * Sets the Product Admin role to have permission to
+ * create files, access media browser,
+ * add media from remote sources, assign node weights.
+ */
+function views_update_7000() {
+  // Get the worx_aurora_base_enable variable to default set if not already set.
+  variable_get('worx_aurora_base_enable', 'worx_aurora_base_disabled');
+
+  /**
+   * Sets the Product Admin role to have permission to
+   * create files, access media browser,
+   * add media from remote sources, assign node weights.
+   */
+  user_role_change_permissions(212478245, 
+    array(
+      'create files' => TRUE,
+      'access media browser' => TRUE,
+      'add media from remote sources' => TRUE,
+      'assign node weights' => TRUE,
     )
   );
 }

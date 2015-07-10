@@ -47,7 +47,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
-  /* Contextual filter: Content: Language */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['language']['id'] = 'language';
   $handler->display->display_options['arguments']['language']['table'] = 'node';
   $handler->display->display_options['arguments']['language']['field'] = 'language';
@@ -686,32 +686,6 @@ function ca_products_views_default_views() {
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
-  $translatables['ca_products_admin'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('All'),
-    t('CA Products: Category Admin'),
-    t('- Choose an operation -'),
-    t('Title'),
-    t('Published'),
-    t('Edit link'),
-    t('Edit'),
-    t('CA Admin'),
-    t('CA Products: Sub Category Admin'),
-    t('CA Products: Product Admin'),
-  );
   $export['ca_products_admin'] = $view;
 
   $view = new view();
@@ -758,7 +732,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
-  /* Contextual filter: Content: Language */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['language']['id'] = 'language';
   $handler->display->display_options['arguments']['language']['table'] = 'node';
   $handler->display->display_options['arguments']['language']['field'] = 'language';
@@ -1144,32 +1118,6 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'CA List';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
-  $translatables['ca_products_list'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Coming soon.'),
-    t('All'),
-    t('CA Products: Category List Template One'),
-    t('CA List'),
-    t('CA Products: Sub Category List Template One'),
-    t('CA Products: Product List View Template One'),
-    t('Read More'),
-    t('CA Products: Product List Template One'),
-    t('CA Products: Category Flex Template One'),
-    t('CA Products: Sub Category Flex Template One'),
-  );
   $export['ca_products_list'] = $view;
 
   $view = new view();
@@ -1352,27 +1300,6 @@ function ca_products_views_default_views() {
   $handler->display->display_options['pane_title'] = 'CA Products: Node View Videos Template One';
   $handler->display->display_options['pane_category']['name'] = 'CA Node';
   $handler->display->display_options['pane_category']['weight'] = '0';
-  $translatables['ca_products_node'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('CA Products: Node View Template One A'),
-    t('All'),
-    t('CA Node'),
-    t('CA Products: Node View Template One B'),
-    t('CA Products: Node View Videos Template One'),
-  );
   $export['ca_products_node'] = $view;
 
   $view = new view();
@@ -1430,7 +1357,7 @@ function ca_products_views_default_views() {
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['order'] = 'DESC';
-  /* Contextual filter: Content: Language */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['language']['id'] = 'language';
   $handler->display->display_options['arguments']['language']['table'] = 'node';
   $handler->display->display_options['arguments']['language']['field'] = 'language';
@@ -1579,21 +1506,6 @@ function ca_products_views_default_views() {
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
-  $translatables['ca_products_sorting'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Weight'),
-    t('All'),
-    t('CA Products: Parent Category Sort'),
-    t('CA Sort'),
-    t('CA Products: Sub-Category Sort'),
-    t('CA Products: Product Sort'),
-  );
   $export['ca_products_sorting'] = $view;
 
   return $export;

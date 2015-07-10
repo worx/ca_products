@@ -37,9 +37,10 @@ function ca_products_settings_form() {
     '#options' => array(
       'ca_products_list_template_one' => t('Template one'),
       'ca_products_list_template_one_flex' => t('Template one Flex'),
+      'ca_products_worx_aurora_one' => t('Worx Aurora template one'),
     ),
     '#required' => TRUE,
-    '#default_value' => variable_get('ca_products_list_template', 'ca_products_list_template_one'),
+    '#default_value' => variable_get('ca_products_list_template', 'ca_products_worx_aurora_one'),
   );
   $form['ca_products_cat_list_count'] = array(
     '#type' => 'textfield',

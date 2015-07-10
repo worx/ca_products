@@ -28,6 +28,7 @@ function ca_products_list_template_access_settings($form, &$form_state, $conf) {
     '#options' => array(
       'ca_products_list_template_one' => t('Template one'),
       'ca_products_list_template_one_flex' => t('Template one Flex'),
+      'ca_products_worx_aurora_one' => t('Worx Aurora template one'),
     ),
     '#required' => TRUE,
     '#default_value' => $conf['ca_products_list_template'],
@@ -46,18 +47,23 @@ function ca_products_list_template_access_settings_form($form, &$form_state) {
  * Check for access.
  */
 function ca_products_list_template_access_check($conf, $context) {
-  return $conf['ca_products_list_template'] == variable_get('ca_products_list_template', 'ca_products_list_template_one');
+  return $conf['ca_products_list_template'] == variable_get('ca_products_list_template', 'ca_products_worx_aurora_one');
 }
 
 /**
  * Provide a summary description based upon the checked products list type.
  */
 function ca_products_list_template_access_summary($conf, $context) {
-  if ($conf['ca_products_list_template'] == 'ca_products_list_template_one') {
-    $template = t('Template one');
-  }
-  else {
-    $template = t('Template one Flex');
+  switch ($conf['ca_products_list_template']) {
+    case 'ca_products_list_template_one':
+      $template = t('Template one');
+      break;
+    case 'ca_products_list_template_one_flex':
+      $template = t('Template one Flex');
+      break;
+    case 'ca_products_worx_aurora_one':
+      $template = t('Worx Aurora template one');
+      break;
   }
 
   return t('Display template is set to: ' . $template);
