@@ -17,7 +17,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'CA Products: Node Template One',
     'no_blocks' => 0,
@@ -156,7 +156,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'CA Products: Category Grid Template One',
     'no_blocks' => 0,
@@ -291,7 +291,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 3;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'CA Products: Category Flex Template One',
     'no_blocks' => 0,
@@ -418,7 +418,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 5;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Aurora Products: Category Grid Template One',
     'no_blocks' => 0,
@@ -553,9 +553,9 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 4;
+  $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Products: Node Template',
+    'title' => 'Aurora Products: Node Template One',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -747,7 +747,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 6;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Aurora Products: Category Flex Template One',
     'no_blocks' => 0,
@@ -934,7 +934,7 @@ function ca_products_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Add New Category',
+    'title' => 'Aurora Products: Add New Category',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1087,36 +1087,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_add_product_menu_context';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_add_product';
-  $handler->handler = 'menu_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'Context Admin',
-    'no_blocks' => FALSE,
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'context_admin_options' => 'entityref_create_node:ca_product:field_ca_product_parent_category',
-    'context_admin_options_items' => 'ca_product',
-    'context_admin_use_node_edit' => 0,
-    'submitted_context' => 'argument_entity_id:node_1',
-    'context_admin_field' => 'field_ca_product_parent_category',
-    'context_admin_custom_redirect' => '',
-  );
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'page_ca_products_add_product__aurora_add_product';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_add_product';
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Add Product',
+    'title' => 'Aurora Products: Add Product',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1231,6 +1208,29 @@ function ca_products_default_page_manager_pages() {
   $display->title_pane = 'new-f74d2894-ca64-4e4e-9b46-2dd8b62e7523';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_add_product_menu_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_add_product';
+  $handler->handler = 'menu_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'Context Admin',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'context_admin_options' => 'entityref_create_node:ca_product:field_ca_product_parent_category',
+    'context_admin_options_items' => 'ca_product',
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'argument_entity_id:node_1',
+    'context_admin_field' => 'field_ca_product_parent_category',
+    'context_admin_custom_redirect' => '',
+  );
+  $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_add_product'] = $page;
 
   $page = new stdClass();
@@ -1297,36 +1297,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_add_sub_category_menu_context';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_add_sub_category';
-  $handler->handler = 'menu_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'Context Admin',
-    'no_blocks' => FALSE,
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'context_admin_options' => 'entityref_create_node:ca_product_category:field_ca_category_parent',
-    'context_admin_options_items' => 'ca_product_category',
-    'context_admin_use_node_edit' => 0,
-    'submitted_context' => 'argument_entity_id:node_1',
-    'context_admin_field' => 'field_ca_category_parent',
-    'context_admin_custom_redirect' => '',
-  );
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'page_ca_products_add_sub_category__aurora_add_sub_category';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_add_sub_category';
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Add Sub Category',
+    'title' => 'Aurora Products: Add Sub Category',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1441,6 +1418,29 @@ function ca_products_default_page_manager_pages() {
   $display->title_pane = 'new-bda1eb59-9958-4317-ba5d-cd61d592d964';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_add_sub_category_menu_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_add_sub_category';
+  $handler->handler = 'menu_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'Context Admin',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'context_admin_options' => 'entityref_create_node:ca_product_category:field_ca_category_parent',
+    'context_admin_options_items' => 'ca_product_category',
+    'context_admin_use_node_edit' => 0,
+    'submitted_context' => 'argument_entity_id:node_1',
+    'context_admin_field' => 'field_ca_category_parent',
+    'context_admin_custom_redirect' => '',
+  );
+  $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_add_sub_category'] = $page;
 
   $page = new stdClass();
@@ -1490,81 +1490,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_category_admin_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_category_admin';
-  $handler->handler = 'panel_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'CA Products: Category Admin',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-admin ca-products-admin',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(
-      0 => array(
-        'identifier' => 'Language',
-        'keyword' => 'language',
-        'name' => 'language',
-        'language' => 'current',
-        'id' => 1,
-      ),
-    ),
-    'relationships' => array(),
-  );
-  $display = new panels_display();
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Product Categories';
-  $display->uuid = '7eaf57ec-a7af-4a58-b802-133f26484ba3';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-6361c2f3-7670-4415-9cb5-692562037a17';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_admin-ca_products_category_admin';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'context_language_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '6361c2f3-7670-4415-9cb5-692562037a17';
-    $display->content['new-6361c2f3-7670-4415-9cb5-692562037a17'] = $pane;
-    $display->panels['middle'][0] = 'new-6361c2f3-7670-4415-9cb5-692562037a17';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'page_ca_products_category_admin__panel_context_2eb36c71-687b-4173-bd04-742c2ca47469';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_category_admin';
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Category Admin',
+    'title' => 'Aurora Products: Category Admin',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1634,6 +1566,74 @@ function ca_products_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_category_admin_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_category_admin';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'CA Products: Category Admin',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-admin ca-products-admin',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Language',
+        'keyword' => 'language',
+        'name' => 'language',
+        'language' => 'current',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Product Categories';
+  $display->uuid = '7eaf57ec-a7af-4a58-b802-133f26484ba3';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-6361c2f3-7670-4415-9cb5-692562037a17';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_admin-ca_products_category_admin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '6361c2f3-7670-4415-9cb5-692562037a17';
+    $display->content['new-6361c2f3-7670-4415-9cb5-692562037a17'] = $pane;
+    $display->panels['middle'][0] = 'new-6361c2f3-7670-4415-9cb5-692562037a17';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_category_admin'] = $page;
 
   $page = new stdClass();
@@ -1683,13 +1683,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_parent_category_sort_panel_context';
+  $handler->name = 'page_ca_products_parent_category_sort__panel_context_75fc6d1b-7438-4e21-83ea-d16079c7dfc0';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_parent_category_sort';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'CA Products: Parent Product Sort',
+    'title' => 'Aurora Products: Parent Category Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1751,13 +1751,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_parent_category_sort__panel_context_75fc6d1b-7438-4e21-83ea-d16079c7dfc0';
+  $handler->name = 'page_ca_products_parent_category_sort_panel_context';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_parent_category_sort';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
-    'title' => 'Aurora Parent Product Sort',
+    'title' => 'CA Products: Parent Product Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1847,6 +1847,160 @@ function ca_products_default_page_manager_pages() {
     'admin_paths' => FALSE,
   );
   $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_product_catalog__panel_context_3e15de98-3397-4ef8-a1f7-b6607e3cbecc';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_product_catalog';
+  $handler->handler = 'panel_context';
+  $handler->weight = -30;
+  $handler->conf = array(
+    'title' => 'Aurora Products: Product Category Grid',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Language',
+        'keyword' => 'language',
+        'name' => 'language',
+        'language' => 'current',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one',
+          ),
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'worx_aurora_base_settings',
+          'settings' => array(
+            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'worx_aurora';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'a4b5bc44-ee90-4905-9863-de507514626b';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
+    $pane->panel = 'first-first';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_list-ca_products_category_list_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8d54d760-0fcd-44c3-9175-f7978632a4cf';
+    $display->content['new-8d54d760-0fcd-44c3-9175-f7978632a4cf'] = $pane;
+    $display->panels['first-first'][0] = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_product_catalog__panel_context_4bd0638c-1aee-4a58-89ad-2e473bdd226d';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_product_catalog';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'Aurora Products: Product Category Flex Grid',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_one_flex',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'a4b5bc44-ee90-4905-9863-de507514626b';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_list-ca_products_category_flex_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9bfe2696-cafc-454d-89bb-27f477b006a4';
+    $display->content['new-9bfe2696-cafc-454d-89bb-27f477b006a4'] = $pane;
+    $display->panels['middle'][0] = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -1994,160 +2148,6 @@ function ca_products_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'page_ca_products_product_catalog__panel_context_3e15de98-3397-4ef8-a1f7-b6607e3cbecc';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_product_catalog';
-  $handler->handler = 'panel_context';
-  $handler->weight = -30;
-  $handler->conf = array(
-    'title' => 'Aurora Product Category Grid',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(
-      0 => array(
-        'identifier' => 'Language',
-        'keyword' => 'language',
-        'name' => 'language',
-        'language' => 'current',
-        'id' => 1,
-      ),
-    ),
-    'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'ca_products_list_template',
-          'settings' => array(
-            'ca_products_list_template' => 'ca_products_list_template_one',
-          ),
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'worx_aurora_base_settings',
-          'settings' => array(
-            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    ),
-  );
-  $display = new panels_display();
-  $display->layout = 'worx_aurora';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = 'a4b5bc44-ee90-4905-9863-de507514626b';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
-    $pane->panel = 'first-first';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_list-ca_products_category_list_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'context_language_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '8d54d760-0fcd-44c3-9175-f7978632a4cf';
-    $display->content['new-8d54d760-0fcd-44c3-9175-f7978632a4cf'] = $pane;
-    $display->panels['first-first'][0] = 'new-8d54d760-0fcd-44c3-9175-f7978632a4cf';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'page_ca_products_product_catalog__panel_context_4bd0638c-1aee-4a58-89ad-2e473bdd226d';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_product_catalog';
-  $handler->handler = 'panel_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'Aurora Product Category Flex Grid',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'ca_products_list_template',
-          'settings' => array(
-            'ca_products_list_template' => 'ca_products_list_template_one_flex',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
-  );
-  $display = new panels_display();
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = 'a4b5bc44-ee90-4905-9863-de507514626b';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_list-ca_products_category_flex_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '9bfe2696-cafc-454d-89bb-27f477b006a4';
-    $display->content['new-9bfe2696-cafc-454d-89bb-27f477b006a4'] = $pane;
-    $display->panels['middle'][0] = 'new-9bfe2696-cafc-454d-89bb-27f477b006a4';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_product_catalog'] = $page;
 
   $page = new stdClass();
@@ -2214,69 +2214,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_product_sort_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_product_sort';
-  $handler->handler = 'panel_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'CA Products: Product Sort',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-admin ca-products-admin',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-  );
-  $display = new panels_display();
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Products';
-  $display->uuid = 'c688efa2-d4df-4ab8-a0bc-641339f39f1e';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_sorting-ca_products_product_sort';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
-    $display->content['new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e'] = $pane;
-    $display->panels['middle'][0] = 'new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'page_ca_products_product_sort__panel_context_ab41f176-9d4e-4807-a0f2-1510345b3540';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_product_sort';
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Product Sort',
+    'title' => 'Aurora Products: Product Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -2331,6 +2275,62 @@ function ca_products_default_page_manager_pages() {
     $pane->uuid = 'ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
     $display->content['new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e'] = $pane;
     $display->panels['first-first'][0] = 'new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_product_sort_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_product_sort';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'CA Products: Product Sort',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-admin ca-products-admin',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Products';
+  $display->uuid = 'c688efa2-d4df-4ab8-a0bc-641339f39f1e';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_sorting-ca_products_product_sort';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
+    $display->content['new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e'] = $pane;
+    $display->panels['middle'][0] = 'new-ee0225ea-78db-4a63-a8f5-3d0e1582ca5e';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -2401,96 +2401,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_products_administration_panel_context';
-  $handler->task = 'page';
-  $handler->subtask = 'ca_products_products_administration';
-  $handler->handler = 'panel_context';
-  $handler->weight = -29;
-  $handler->conf = array(
-    'title' => 'CA Products: Product Admin',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-admin ca-products-admin',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-  );
-  $display = new panels_display();
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = 'Products';
-  $display->uuid = 'c744eeac-84a2-4cbf-89a3-93fa2f76da66';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_admin-ca_products_sub_cat_admin';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'context_language_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'fbc1ab84-7bbc-4da5-a792-599f656844c9';
-    $display->content['new-fbc1ab84-7bbc-4da5-a792-599f656844c9'] = $pane;
-    $display->panels['middle'][0] = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
-    $pane = new stdClass();
-    $pane->pid = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'ca_products_admin-ca_products_product_admin';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'context_language_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '4e52e4bd-5584-4523-a256-d641cd2cb418';
-    $display->content['new-4e52e4bd-5584-4523-a256-d641cd2cb418'] = $pane;
-    $display->panels['middle'][1] = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
-  $handler->conf['display'] = $display;
-  $page->default_handlers[$handler->name] = $handler;
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
   $handler->name = 'page_ca_products_products_administration__panel_context_8aae9e94-beac-44db-ad78-3df14edf9781';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_products_administration';
   $handler->handler = 'panel_context';
   $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Aurora Product Admin',
+    'title' => 'Aurora Products:Product Admin',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -2576,6 +2493,89 @@ function ca_products_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_products_administration_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_products_administration';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'CA Products: Product Admin',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-admin ca-products-admin',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Products';
+  $display->uuid = 'c744eeac-84a2-4cbf-89a3-93fa2f76da66';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_admin-ca_products_sub_cat_admin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'fbc1ab84-7bbc-4da5-a792-599f656844c9';
+    $display->content['new-fbc1ab84-7bbc-4da5-a792-599f656844c9'] = $pane;
+    $display->panels['middle'][0] = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
+    $pane = new stdClass();
+    $pane->pid = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'ca_products_admin-ca_products_product_admin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'context_language_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '4e52e4bd-5584-4523-a256-d641cd2cb418';
+    $display->content['new-4e52e4bd-5584-4523-a256-d641cd2cb418'] = $pane;
+    $display->panels['middle'][1] = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
   $pages['ca_products_products_administration'] = $page;
 
   $page = new stdClass();
@@ -2642,13 +2642,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_sub_category_sort_panel_context';
+  $handler->name = 'page_ca_products_sub_category_sort__panel_context_5e844c4d-9ca8-4b40-964c-5fe17760fd0f';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_sub_category_sort';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'CA Products: Sub Category Sort',
+    'title' => 'Aurora Products: Sub Category Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -2657,6 +2657,18 @@ function ca_products_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'worx_aurora_base_settings',
+          'settings' => array(
+            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
   );
   $display = new panels_display();
   $display->layout = 'onecol';
@@ -2698,13 +2710,13 @@ function ca_products_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_ca_products_sub_category_sort__panel_context_5e844c4d-9ca8-4b40-964c-5fe17760fd0f';
+  $handler->name = 'page_ca_products_sub_category_sort_panel_context';
   $handler->task = 'page';
   $handler->subtask = 'ca_products_sub_category_sort';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
-    'title' => 'Aurora Sub Category Sort',
+    'title' => 'CA Products: Sub Category Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -2713,18 +2725,6 @@ function ca_products_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'access' => array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'worx_aurora_base_settings',
-          'settings' => array(
-            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-      'logic' => 'and',
-    ),
   );
   $display = new panels_display();
   $display->layout = 'onecol';
