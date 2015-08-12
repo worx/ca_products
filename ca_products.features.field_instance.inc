@@ -230,7 +230,8 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product_category-field_ca_category_parent'
+  // Exported field_instance:
+  // 'node-ca_product_category-field_ca_category_parent'
   $field_instances['node-ca_product_category-field_ca_category_parent'] = array(
     'bundle' => 'ca_product_category',
     'default_value' => NULL,
@@ -273,7 +274,8 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product_category-field_ca_product_category_desc'
+  // Exported field_instance:
+  // 'node-ca_product_category-field_ca_product_category_desc'
   $field_instances['node-ca_product_category-field_ca_product_category_desc'] = array(
     'bundle' => 'ca_product_category',
     'default_value' => NULL,
@@ -315,7 +317,8 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product_category-field_ca_product_category_image'
+  // Exported field_instance:
+  // 'node-ca_product_category-field_ca_product_category_image'
   $field_instances['node-ca_product_category-field_ca_product_category_image'] = array(
     'bundle' => 'ca_product_category',
     'deleted' => 0,
