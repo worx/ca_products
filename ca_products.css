@@ -63,6 +63,7 @@
 
 .pane-ca-products-node-ca-products-node-video-1 {
   border-top: 1px solid #D2D2D2;
+  clear: left;
   margin: 0 40px;
   padding: 10px;
 }
