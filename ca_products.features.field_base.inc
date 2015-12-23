@@ -10,7 +10,7 @@
 function ca_products_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_ca_category_parent'
+  // Exported field_base: 'field_ca_category_parent'.
   $field_bases['field_ca_category_parent'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -49,7 +49,7 @@ function ca_products_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ca_product_category_desc'
+  // Exported field_base: 'field_ca_product_category_desc'.
   $field_bases['field_ca_product_category_desc'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -68,7 +68,7 @@ function ca_products_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_ca_product_category_image'
+  // Exported field_base: 'field_ca_product_category_image'.
   $field_bases['field_ca_product_category_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -90,7 +90,7 @@ function ca_products_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_ca_product_image'
+  // Exported field_base: 'field_ca_product_image'.
   $field_bases['field_ca_product_image'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -112,7 +112,7 @@ function ca_products_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_ca_product_parent_category'
+  // Exported field_base: 'field_ca_product_parent_category'.
   $field_bases['field_ca_product_parent_category'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -151,7 +151,7 @@ function ca_products_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ca_product_video'
+  // Exported field_base: 'field_ca_product_video'.
   $field_bases['field_ca_product_video'] = array(
     'active' => 1,
     'cardinality' => -1,

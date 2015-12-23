@@ -10,7 +10,7 @@
 function ca_products_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-ca_product-body'
+  // Exported field_instance: 'node-ca_product-body'.
   $field_instances['node-ca_product-body'] = array(
     'bundle' => 'ca_product',
     'default_value' => NULL,
@@ -54,7 +54,7 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product-field_ca_product_image'
+  // Exported field_instance: 'node-ca_product-field_ca_product_image'.
   $field_instances['node-ca_product-field_ca_product_image'] = array(
     'bundle' => 'ca_product',
     'deleted' => 0,
@@ -96,19 +96,21 @@ function ca_products_field_default_field_instances() {
       'active' => 1,
       'module' => 'multiupload_imagefield_widget',
       'settings' => array(
-        'manualcrop_crop_info' => TRUE,
-        'manualcrop_default_crop_area' => TRUE,
-        'manualcrop_enable' => FALSE,
-        'manualcrop_inline_crop' => FALSE,
-        'manualcrop_instant_crop' => FALSE,
-        'manualcrop_instant_preview' => TRUE,
-        'manualcrop_keyboard' => TRUE,
-        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 1,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 1,
         'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_list' => array(
+          'crop_default_landscape' => 'crop_default_landscape',
+        ),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => FALSE,
-        'preview_image_style' => 'thumbnail',
+        'manualcrop_thumblist' => 0,
+        'preview_image_style' => 'crop_default_landscape_preview',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_miw',
@@ -116,7 +118,8 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product-field_ca_product_parent_category'
+  // Exported field_instance:
+  // 'node-ca_product-field_ca_product_parent_category'.
   $field_instances['node-ca_product-field_ca_product_parent_category'] = array(
     'bundle' => 'ca_product',
     'default_value' => NULL,
@@ -159,7 +162,7 @@ function ca_products_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ca_product-field_ca_product_video'
+  // Exported field_instance: 'node-ca_product-field_ca_product_video'.
   $field_instances['node-ca_product-field_ca_product_video'] = array(
     'bundle' => 'ca_product',
     'deleted' => 0,
@@ -231,7 +234,7 @@ function ca_products_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-ca_product_category-field_ca_category_parent'
+  // 'node-ca_product_category-field_ca_category_parent'.
   $field_instances['node-ca_product_category-field_ca_category_parent'] = array(
     'bundle' => 'ca_product_category',
     'default_value' => NULL,
@@ -275,7 +278,7 @@ function ca_products_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-ca_product_category-field_ca_product_category_desc'
+  // 'node-ca_product_category-field_ca_product_category_desc'.
   $field_instances['node-ca_product_category-field_ca_product_category_desc'] = array(
     'bundle' => 'ca_product_category',
     'default_value' => NULL,
@@ -318,7 +321,7 @@ function ca_products_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-ca_product_category-field_ca_product_category_image'
+  // 'node-ca_product_category-field_ca_product_category_image'.
   $field_instances['node-ca_product_category-field_ca_product_category_image'] = array(
     'bundle' => 'ca_product_category',
     'deleted' => 0,
@@ -360,18 +363,18 @@ function ca_products_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
-        'manualcrop_crop_info' => TRUE,
-        'manualcrop_default_crop_area' => TRUE,
-        'manualcrop_enable' => FALSE,
-        'manualcrop_inline_crop' => FALSE,
-        'manualcrop_instant_crop' => FALSE,
-        'manualcrop_instant_preview' => TRUE,
-        'manualcrop_keyboard' => TRUE,
-        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
         'manualcrop_styles_list' => array(),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => FALSE,
+        'manualcrop_thumblist' => 0,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
