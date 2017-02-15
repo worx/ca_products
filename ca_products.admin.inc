@@ -37,6 +37,7 @@ function ca_products_settings_form() {
     '#options' => array(
       'ca_products_list_template_one' => t('Template one'),
       'ca_products_list_template_one_flex' => t('Template one Flex'),
+      'ca_products_list_template_flex_grid' => t('Template Flex Grid'),
     ),
     '#required' => TRUE,
     '#default_value' => variable_get('ca_products_list_template', 'ca_products_list_template_one'),
@@ -61,6 +62,18 @@ function ca_products_settings_form() {
     '#default_value' => variable_get('ca_products_list_count', 10),
     '#required' => TRUE,
     '#description' => t('How many products would you like displayed per page?'),
+  );
+  $form['ca_products_grid_count'] = array(
+    '#type' => 'select',
+    '#title' => t('Product\'s column count'),
+    '#options' => array(
+      'products-column-2' => t('Two Column'),
+      'products-column-3' => t('Three Column'),
+      'products-column-4' => t('Four Column'),
+    ),
+    '#required' => TRUE,
+    '#default_value' => variable_get('ca_products_grid_count', 'products-column-3'),
+    '#description' => t('How many columns at the desktop when displaying Products as a grid?'),
   );
   $form['actions'] = array(
     '#type' => 'actions',

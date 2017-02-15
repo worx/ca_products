@@ -17,7 +17,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'CA Products: Node Template One',
     'no_blocks' => 0,
@@ -158,7 +158,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'CA Products: Category Grid Template One',
     'no_blocks' => 0,
@@ -295,7 +295,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'CA Products: Category Flex Template One',
     'no_blocks' => 0,
@@ -424,7 +424,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'Aurora Products: Category Grid Template One',
     'no_blocks' => 0,
@@ -454,12 +454,19 @@ function ca_products_default_page_manager_handlers() {
           ),
           'not' => FALSE,
         ),
+        2 => array(
+          'name' => 'worx_aurora_base_settings',
+          'settings' => array(
+            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
+          ),
+          'not' => FALSE,
+        ),
       ),
       'logic' => 'and',
     ),
   );
   $display = new panels_display();
-  $display->layout = 'onecol';
+  $display->layout = 'worx_aurora';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -476,7 +483,7 @@ function ca_products_default_page_manager_handlers() {
   $display->panels = array();
   $pane = new stdClass();
   $pane->pid = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'entity_field';
   $pane->subtype = 'node:field_ca_product_category_desc';
   $pane->shown = TRUE;
@@ -502,10 +509,10 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = '95557168-ce26-4f32-bee4-5fff2edc9d84';
   $display->content['new-95557168-ce26-4f32-bee4-5fff2edc9d84'] = $pane;
-  $display->panels['middle'][0] = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
+  $display->panels['first-first'][0] = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
   $pane = new stdClass();
   $pane->pid = 'new-e8e6cda9-4d77-4426-9480-8872f76ab43d';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'views_panes';
   $pane->subtype = 'ca_products_list-ca_products_sub_cat_list_one';
   $pane->shown = TRUE;
@@ -525,10 +532,10 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = 'e8e6cda9-4d77-4426-9480-8872f76ab43d';
   $display->content['new-e8e6cda9-4d77-4426-9480-8872f76ab43d'] = $pane;
-  $display->panels['middle'][1] = 'new-e8e6cda9-4d77-4426-9480-8872f76ab43d';
+  $display->panels['first-first'][1] = 'new-e8e6cda9-4d77-4426-9480-8872f76ab43d';
   $pane = new stdClass();
   $pane->pid = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'views_panes';
   $pane->subtype = 'ca_products_list-ca_products_product_list_1';
   $pane->shown = TRUE;
@@ -548,7 +555,7 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = '3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
   $display->content['new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed'] = $pane;
-  $display->panels['middle'][2] = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
+  $display->panels['first-first'][2] = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -561,7 +568,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Aurora Products: Node Template One',
     'no_blocks' => 0,
@@ -757,7 +764,7 @@ function ca_products_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Aurora Products: Category Flex Template One',
     'no_blocks' => 0,
@@ -799,7 +806,7 @@ function ca_products_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'onecol';
+  $display->layout = 'worx_aurora';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -816,7 +823,7 @@ function ca_products_default_page_manager_handlers() {
   $display->panels = array();
   $pane = new stdClass();
   $pane->pid = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'entity_field';
   $pane->subtype = 'node:field_ca_product_category_desc';
   $pane->shown = TRUE;
@@ -842,10 +849,10 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = '95557168-ce26-4f32-bee4-5fff2edc9d84';
   $display->content['new-95557168-ce26-4f32-bee4-5fff2edc9d84'] = $pane;
-  $display->panels['middle'][0] = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
+  $display->panels['first-first'][0] = 'new-95557168-ce26-4f32-bee4-5fff2edc9d84';
   $pane = new stdClass();
   $pane->pid = 'new-8477f158-253d-4cd4-81c1-08b5d46681b7';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'views_panes';
   $pane->subtype = 'ca_products_list-ca_products_sub_cat_flex_one';
   $pane->shown = TRUE;
@@ -861,10 +868,10 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = '8477f158-253d-4cd4-81c1-08b5d46681b7';
   $display->content['new-8477f158-253d-4cd4-81c1-08b5d46681b7'] = $pane;
-  $display->panels['middle'][1] = 'new-8477f158-253d-4cd4-81c1-08b5d46681b7';
+  $display->panels['first-first'][1] = 'new-8477f158-253d-4cd4-81c1-08b5d46681b7';
   $pane = new stdClass();
   $pane->pid = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
-  $pane->panel = 'middle';
+  $pane->panel = 'first-first';
   $pane->type = 'views_panes';
   $pane->subtype = 'ca_products_list-ca_products_product_list_1';
   $pane->shown = TRUE;
@@ -880,7 +887,7 @@ function ca_products_default_page_manager_handlers() {
   $pane->locks = array();
   $pane->uuid = '3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
   $display->content['new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed'] = $pane;
-  $display->panels['middle'][2] = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
+  $display->panels['first-first'][2] = 'new-3f0db9ed-6c0e-49c3-8813-12fa4c670eed';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

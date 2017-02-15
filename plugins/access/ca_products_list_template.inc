@@ -28,6 +28,7 @@ function ca_products_list_template_access_settings($form, &$form_state, $conf) {
     '#options' => array(
       'ca_products_list_template_one' => t('Template one'),
       'ca_products_list_template_one_flex' => t('Template one Flex'),
+      'ca_products_list_template_flex_grid' => t('Template Flex Grid'),
     ),
     '#required' => TRUE,
     '#default_value' => $conf['ca_products_list_template'],
@@ -59,6 +60,9 @@ function ca_products_list_template_access_summary($conf, $context) {
       break;
     case 'ca_products_list_template_one_flex':
       $template = t('Template one Flex');
+      break;
+    case 'ca_products_list_template_flex_grid':
+      $template = t('Template Flex Grid');
       break;
   }
 
