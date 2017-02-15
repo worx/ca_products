@@ -1497,11 +1497,11 @@ function ca_products_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -29;
   $handler->conf = array(
-    'title' => 'Aurora Products: Product Category Flex Grid',
+    'title' => 'Aurora Products: Product Category Flex',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
+    'body_classes_to_add' => 'ca-product-flex ca-product-cetegory-flex-template-1',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
@@ -1512,6 +1512,13 @@ function ca_products_default_page_manager_pages() {
           'name' => 'ca_products_list_template',
           'settings' => array(
             'ca_products_list_template' => 'ca_products_list_template_one_flex',
+          ),
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'worx_aurora_base_settings',
+          'settings' => array(
+            'worx_aurora_base_enable' => 'worx_aurora_base_enabled',
           ),
           'not' => FALSE,
         ),
@@ -1648,11 +1655,11 @@ function ca_products_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -27;
   $handler->conf = array(
-    'title' => 'CA Products: Product Category Flex Grid',
+    'title' => 'CA Products: Product Category Flex',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'ca-product-list ca-product-cetegory-list-template-1',
+    'body_classes_to_add' => 'ca-product-flex ca-product-cetegory-flex-template-1',
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
@@ -1666,8 +1673,15 @@ function ca_products_default_page_manager_pages() {
           ),
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'ca_products_list_template',
+          'settings' => array(
+            'ca_products_list_template' => 'ca_products_list_template_flex_grid',
+          ),
+          'not' => FALSE,
+        ),
       ),
-      'logic' => 'and',
+      'logic' => 'or',
     ),
   );
   $display = new panels_display();
@@ -1714,11 +1728,133 @@ function ca_products_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'ca_products_product_sort';
+  $page->task = 'page';
+  $page->admin_title = 'CA Products: Product Sort';
+  $page->admin_description = '';
+  $page->path = 'node/%node/ca_product_admin/product-sort';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'node_type',
+        'settings' => array(
+          'type' => array(
+            'ca_product_category' => 'ca_product_category',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Product Sort',
+    'name' => 'navigation',
+    'weight' => '29',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Node: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_product_sort__panel_context_b8676743-84b1-474a-9f93-c06d2f95eab7';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_product_sort';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'CA Products: Product Sort',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-admin ca-products-admin',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Product Sort';
+  $display->uuid = 'c782c1a1-c43f-4c8a-b598-0a56286b3fd3';
+  $display->storage_type = '';
+  $display->storage_id = '';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-8ef175bf-680a-4f20-8720-82a2c01b2abd';
+  $pane->panel = 'middle';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'ca_products_sorting-ca_products_product_sort';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '8ef175bf-680a-4f20-8720-82a2c01b2abd';
+  $display->content['new-8ef175bf-680a-4f20-8720-82a2c01b2abd'] = $pane;
+  $display->panels['middle'][0] = 'new-8ef175bf-680a-4f20-8720-82a2c01b2abd';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['ca_products_product_sort'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'ca_products_products_administration';
   $page->task = 'page';
   $page->admin_title = 'CA Products: Products Administration';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_product_admin/administration';
+  $page->path = 'node/%node/ca_product_admin/product-admin';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -1750,7 +1886,7 @@ function ca_products_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'default tab',
-    'title' => 'Administer',
+    'title' => 'Product Administer',
     'name' => 'navigation',
     'weight' => '0',
     'parent' => array(
@@ -1808,6 +1944,132 @@ function ca_products_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
+  $pane->pid = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
+  $pane->panel = 'middle';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'ca_products_admin-ca_products_product_admin';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'context' => array(
+      0 => 'context_language_1',
+    ),
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '4e52e4bd-5584-4523-a256-d641cd2cb418';
+  $display->content['new-4e52e4bd-5584-4523-a256-d641cd2cb418'] = $pane;
+  $display->panels['middle'][0] = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['ca_products_products_administration'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'ca_products_products_category_administration';
+  $page->task = 'page';
+  $page->admin_title = 'CA Products: Products Category Administration';
+  $page->admin_description = '';
+  $page->path = 'node/%node/ca_product_admin/category-admin';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 3,
+            1 => 4,
+            2 => 212478245,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'node_type',
+        'settings' => array(
+          'type' => array(
+            'ca_product_category' => 'ca_product_category',
+          ),
+        ),
+        'context' => 'argument_entity_id:node_1',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Category Administer',
+    'name' => 'navigation',
+    'weight' => '5',
+    'parent' => array(
+      'type' => 'tab',
+      'title' => 'Administration',
+      'name' => 'navigation',
+      'weight' => '20',
+    ),
+  );
+  $page->arguments = array(
+    'node' => array(
+      'id' => 1,
+      'identifier' => 'Node: ID',
+      'name' => 'entity_id:node',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_ca_products_products_category_administration__panel_context_56ce31c9-6a00-4e16-ac72-bbab0d9c2aa8';
+  $handler->task = 'page';
+  $handler->subtask = 'ca_products_products_category_administration';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'CA Products: Category Admin',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'ca-admin ca-products-admin',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Sub Categories';
+  $display->uuid = 'c744eeac-84a2-4cbf-89a3-93fa2f76da66';
+  $display->storage_type = '';
+  $display->storage_id = '';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
   $pane->pid = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
   $pane->panel = 'middle';
   $pane->type = 'views_panes';
@@ -1830,43 +2092,20 @@ function ca_products_default_page_manager_pages() {
   $pane->uuid = 'fbc1ab84-7bbc-4da5-a792-599f656844c9';
   $display->content['new-fbc1ab84-7bbc-4da5-a792-599f656844c9'] = $pane;
   $display->panels['middle'][0] = 'new-fbc1ab84-7bbc-4da5-a792-599f656844c9';
-  $pane = new stdClass();
-  $pane->pid = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
-  $pane->panel = 'middle';
-  $pane->type = 'views_panes';
-  $pane->subtype = 'ca_products_admin-ca_products_product_admin';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'context' => array(
-      0 => 'context_language_1',
-    ),
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '4e52e4bd-5584-4523-a256-d641cd2cb418';
-  $display->content['new-4e52e4bd-5584-4523-a256-d641cd2cb418'] = $pane;
-  $display->panels['middle'][1] = 'new-4e52e4bd-5584-4523-a256-d641cd2cb418';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['ca_products_products_administration'] = $page;
+  $pages['ca_products_products_category_administration'] = $page;
 
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'ca_products_sub_category_sort';
   $page->task = 'page';
-  $page->admin_title = 'CA Products: Sub Category and Product Sort';
+  $page->admin_title = 'CA Products: Sub Category Sort';
   $page->admin_description = '';
-  $page->path = 'node/%node/ca_product_admin/sort';
+  $page->path = 'node/%node/ca_product_admin/category-sort';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -1900,7 +2139,7 @@ function ca_products_default_page_manager_pages() {
     'type' => 'tab',
     'title' => 'Category Sort',
     'name' => 'navigation',
-    'weight' => '29',
+    'weight' => '30',
     'parent' => array(
       'type' => 'none',
       'title' => '',
@@ -1929,7 +2168,7 @@ function ca_products_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -29;
   $handler->conf = array(
-    'title' => 'CA Products: Sub Category and Product Sort',
+    'title' => 'CA Products: Sub Category Sort',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -1949,7 +2188,7 @@ function ca_products_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Product Sub Categories';
+  $display->title = 'Sub Categories Sort';
   $display->uuid = 'c782c1a1-c43f-4c8a-b598-0a56286b3fd3';
   $display->storage_type = '';
   $display->storage_id = '';
@@ -1974,25 +2213,6 @@ function ca_products_default_page_manager_pages() {
   $pane->uuid = '094fcd7d-c78a-4fee-90d2-b68a2fb08211';
   $display->content['new-094fcd7d-c78a-4fee-90d2-b68a2fb08211'] = $pane;
   $display->panels['middle'][0] = 'new-094fcd7d-c78a-4fee-90d2-b68a2fb08211';
-  $pane = new stdClass();
-  $pane->pid = 'new-8ef175bf-680a-4f20-8720-82a2c01b2abd';
-  $pane->panel = 'middle';
-  $pane->type = 'views_panes';
-  $pane->subtype = 'ca_products_sorting-ca_products_product_sort';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array();
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '8ef175bf-680a-4f20-8720-82a2c01b2abd';
-  $display->content['new-8ef175bf-680a-4f20-8720-82a2c01b2abd'] = $pane;
-  $display->panels['middle'][1] = 'new-8ef175bf-680a-4f20-8720-82a2c01b2abd';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
