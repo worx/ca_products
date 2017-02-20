@@ -34,16 +34,6 @@ function ca_products_install() {
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
       'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
     )
   );
 
@@ -54,16 +44,6 @@ function ca_products_install() {
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
       'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
     )
   );
 
@@ -74,16 +54,6 @@ function ca_products_install() {
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
       'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
     )
   );
 }
@@ -118,26 +88,6 @@ function ca_products_update_7000() {
  * given these permissions without overridding the feature.
  */
 function ca_products_update_7001() {
-  // Set the permissions for Product Admin
-  user_role_change_permissions(212478245, 
-    array(
-      'create files' => TRUE,
-      'access media browser' => TRUE,
-      'add media from remote sources' => TRUE,
-      'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
-    )
-  );
-
   // Set the permissions for Administrator
   user_role_change_permissions(3, 
     array(
@@ -145,16 +95,6 @@ function ca_products_update_7001() {
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
       'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
     )
   );
 
@@ -165,16 +105,6 @@ function ca_products_update_7001() {
       'access media browser' => TRUE,
       'add media from remote sources' => TRUE,
       'assign node weight' => TRUE,
-      'create ca_product content' => TRUE,
-      'create ca_product_category content' => TRUE,
-      'delete any ca_product content' => TRUE,
-      'delete any ca_product_category content' => TRUE,
-      'delete own ca_product content' => TRUE,
-      'delete own ca_product_category content' => TRUE,
-      'edit any ca_product content' => TRUE,
-      'edit any ca_product_category content' => TRUE,
-      'edit own ca_product content' => TRUE,
-      'edit own ca_product_category content' => TRUE,
     )
   );
 }
