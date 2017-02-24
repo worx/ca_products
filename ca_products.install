@@ -23,9 +23,9 @@ function ca_products_install() {
   variable_get('worx_aurora_base_enable', 'worx_aurora_base_disabled');
   
   // Set the Pathauto for the node.
-  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:field_ca_category_parent]/[node:title]');
+  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:product_category_hierarchy]/[node:title]');
   
-  variable_set('pathauto_node_ca_product_pattern', 'products/[node:field_ca_product_parent_category]/[node:title]');
+  variable_set('pathauto_node_ca_product_pattern', '[node:product_category_path]/[node:title]');
   
   // Set the permissions for Product Admin
   user_role_change_permissions(212478245, 
