@@ -23,9 +23,12 @@ function ca_products_install() {
   variable_get('worx_aurora_base_enable', 'worx_aurora_base_disabled');
   
   // Set the Pathauto for the node.
-  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:product_category_hierarchy]/[node:title]');
+  variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:product_category_hierarchy]/[node:worx_title]');
   
-  variable_set('pathauto_node_ca_product_pattern', '[node:product_category_path]/[node:title]');
+  variable_set('pathauto_node_ca_product_pattern', '[node:product_product_path]/[node:worx_title]');
+  
+  // Set the Pathauto Slash setting to do not remove because of the hierarchy fix to product.
+  variable_set('pathauto_punctuation_slash', '2');
   
   // Set the permissions for Product Admin
   user_role_change_permissions(212478245, 
@@ -107,4 +110,30 @@ function ca_products_update_7001() {
       'assign node weight' => TRUE,
     )
   );
+}
+
+/**
+ * Updated the path to allow for full hierarchy
+ */
+function ca_products_update_7002() {
+  $setslash = FALSE;
+
+  $catpath = variable_get('pathauto_node_ca_product_category_pattern', '');
+  if ($catpath == 'products/[node:field_ca_category_parent]/[node:title]' || $catpath == '') {
+    variable_set('pathauto_node_ca_product_category_pattern', 'products/[node:product_category_hierarchy]/[node:worx_title]');
+
+    $setslash = TRUE;
+  }
+
+  $prodpath = variable_get('pathauto_node_ca_product_pattern', '');
+  if ($prodpath == 'products/[node:field_ca_product_parent_category]/[node:title]' || $prodpath == '') {
+    variable_set('pathauto_node_ca_product_pattern', '[node:product_product_path]/[node:worx_title]');
+
+    $setslash = TRUE;
+  }
+  
+  if ($setslash === TRUE) {
+    // Set the Pathauto Slash setting to do not remove because of the hierarchy fix to product.
+    variable_set('pathauto_punctuation_slash', '2');
+  }
 }

@@ -93,10 +93,10 @@ function ca_products_token_info() {
     'description' => t("Hierachy path of the category"),
   );
   
-  // Define token value, product_category_path is the token will be used as [node:product_category_path]
-  $data['tokens']['node']['product_category_path'] = array(
-    'name' => t("Product category path"),
-    'description' => t("The path of the category is located at"),
+  // Define token value, product_product_path is the token will be used as [node:product_product_path]
+  $data['tokens']['node']['product_product_path'] = array(
+    'name' => t("Product product path"),
+    'description' => t("The path of the category the product is located at"),
   );
   
   // Return associative array of tokens & token types
@@ -116,30 +116,24 @@ function ca_products_tokens($type, $tokens, array $data = array(), array $option
         // Check token is product_category_hierarchy
         case 'product_category_hierarchy':
           $cateparent =  $data['node']->field_ca_category_parent;
-          print_r($data['node']);
-          if ($cateparent != NULL) {
-            $x = 0;
-            foreach ($cateparent[LANGUAGE_NONE][0] as $category) {
-              //print_r('Category Parent ' . $category);
-              $x = $category;
-            }
+          //print_r($data['node']);
+          $search  = array(' w/', '/');
+          $replace = array(' ', '-');
+          if ($cateparent[LANGUAGE_NONE] != NULL) {
+            $x = $cateparent[LANGUAGE_NONE][0]['target_id'];
             while ($x > 0) {
               $node = node_load($x);
-              if ($replacements[$original] == NULL) {
-                $replacements[$original] = $node->title;
+              $nodetitlefix = str_replace($search, $replace, $node->title);
+              if (isset($replacements[$original])) {
+                $replacements[$original] = $nodetitlefix . '/' . $replacements[$original];
               } else {
-                $replacements[$original] = $node->title . '/' . $replacements[$original];
+                $replacements[$original] = $nodetitlefix;
               }
               //print_r('Category Path ' . $replacements[$original]);
               $cateparent =  $node->field_ca_category_parent;
               //print_r('Category Parent ' . $cateparent);
-              $hierarchy = '';
-              //print_r($data['node']);
               if ($cateparent != NULL) {
-                foreach ($cateparent[LANGUAGE_NONE][0] as $category) {
-                  print_r('Category Parent ' . $category);
-                  $x = $category;
-                }
+                $x = $cateparent[LANGUAGE_NONE][0]['target_id'];
               } else {
                 break;
               }
@@ -147,17 +141,14 @@ function ca_products_tokens($type, $tokens, array $data = array(), array $option
           }
           //print_r('Category Path ' . $replacements[$original]);
           break;
-        // Check token is product_category_path
-        case 'product_category_path':
-          $category =  $data['node']->field_ca_product_parent_category[LANGUAGE_NONE][0];
+        // Check token is product_product_path
+        case 'product_product_path':
+          $category =  $data['node']->field_ca_product_parent_category[LANGUAGE_NONE][0]['target_id'];
           //print_r($data['node']);
-          foreach ($category as $categorypath) {
-            $node = node_load($categorypath);
-            $nodepath = 'node/' . $node->nid;
-            $path = drupal_get_path_alias($nodepath);
-            //print_r($path);
-            $replacements[$original] = $path;
-          }
+          $nodepath = 'node/' . $category;
+          $path = drupal_get_path_alias($nodepath);
+          //print_r($path);
+          $replacements[$original] = $path;
           break;
       }
     }
