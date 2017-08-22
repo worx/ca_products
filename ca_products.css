@@ -79,14 +79,16 @@
 /* Flex List */
 .ca-product-flex .view-content,
 .ca-product-category-node-flex .view-display-id-ca_products_sub_cat_flex_one .view-content,
-.ca-product-category-node-flex .view-display-id-ca_products_product_grid .view-content {
+.ca-product-category-node-flex .view-display-id-ca_products_product_grid .view-content,
+.ca-product-category-node-flex-grid .view-display-id-ca_products_product_grid .view-content {
   display: flex;
   flex-flow: row wrap;
 }
 
 .ca-product-flex .views-row,
 .ca-product-category-node-flex .view-display-id-ca_products_sub_cat_flex_one .views-row,
-.ca-product-category-node-flex .view-display-id-ca_products_product_grid .views-row {
+.ca-product-category-node-flex .view-display-id-ca_products_product_grid .views-row,
+.ca-product-category-node-flex-grid .view-display-id-ca_products_product_grid .views-row {
   text-align: center;
   flex: 1 1 0;
 }
