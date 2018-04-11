@@ -40,7 +40,7 @@ function ca_products_settings_form() {
       'ca_products_list_template_flex_grid' => t('Template Flex Grid'),
     ),
     '#required' => TRUE,
-    '#default_value' => variable_get('ca_products_list_template', 'ca_products_list_template_one'),
+    '#default_value' => variable_get('ca_products_list_template', 'ca_products_list_template_one_flex'),
   );
   $form['ca_products_cat_list_count'] = array(
     '#type' => 'textfield',
