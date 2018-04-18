@@ -90,7 +90,7 @@
 .ca-product-category-node-flex .view-display-id-ca_products_product_grid .views-row,
 .ca-product-category-node-flex-grid .view-display-id-ca_products_product_grid .views-row {
   text-align: center;
-  flex: 1 1 0;
+  flex: 0 1 25%;
 }
 
 
